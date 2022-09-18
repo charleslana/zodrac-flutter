@@ -1,5 +1,8 @@
 import 'package:get/get.dart';
 import 'package:zodrac/app/bindings/language_binding.dart';
+import 'package:zodrac/app/guards/auth_guard.dart';
+import 'package:zodrac/app/modules/character/bindings/character_binding.dart';
+import 'package:zodrac/app/modules/character/pages/character_page.dart';
 import 'package:zodrac/app/modules/landing/bindings/landing_binding.dart';
 import 'package:zodrac/app/modules/landing/pages/landing_page.dart';
 import 'package:zodrac/app/modules/login/bindings/login_binding.dart';
@@ -41,6 +44,18 @@ class AppPages {
       page: () => const RegisterPage(),
       binding: RegisterBinding(),
       transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.characters,
+      page: () => const CharacterPage(),
+      bindings: [
+        CharacterBinding(),
+        LoginBinding(),
+      ],
+      transition: Transition.leftToRight,
+      middlewares: [
+        AuthGuard(),
+      ],
     ),
   ];
 }

@@ -38,14 +38,15 @@ class ThemeColor {
     );
 
     final ThemeData theme = ThemeData(
-      fontFamily: 'Dosis',
-      colorScheme: colorScheme,
-      useMaterial3: true,
-      inputDecorationTheme: const InputDecorationTheme(
-        errorStyle: TextStyle(color: Colors.redAccent),
-        labelStyle: TextStyle(fontSize: 13),
-      ),
-    );
+        fontFamily: 'Dosis',
+        colorScheme: colorScheme,
+        useMaterial3: true,
+        inputDecorationTheme: const InputDecorationTheme(
+          errorStyle: TextStyle(color: Colors.redAccent),
+          labelStyle: TextStyle(fontSize: 13),
+        ),
+        scaffoldBackgroundColor: const Color(0xff26143f),
+        cardTheme: const CardTheme(color: cardBackground));
 
     return theme;
   }
