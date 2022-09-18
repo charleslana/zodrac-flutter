@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:get/get.dart';
 import 'package:zodrac/app/modules/character/models/character_model.dart';
 import 'package:zodrac/app/services/request_service.dart';
