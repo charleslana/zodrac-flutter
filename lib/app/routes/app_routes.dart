@@ -5,5 +5,6 @@ class AppRoutes {
   static const landing = '/landing';
   static const login = '/login';
   static const register = '/register';
-  static const characters = '/characters';
+  static const character = '/character';
+  static const characterForm = '/character/form';
 }

@@ -141,7 +141,7 @@ class LoginPage extends StatelessWidget {
                             children: [
                               TextButton(
                                 onPressed: () => Get.offAllNamed<dynamic>(
-                                    AppRoutes.characters),
+                                    AppRoutes.character),
                                 child: const Text(
                                   'Ir para Personagens',
                                   textAlign: TextAlign.center,

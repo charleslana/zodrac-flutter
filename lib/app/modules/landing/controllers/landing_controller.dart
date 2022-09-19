@@ -69,7 +69,7 @@ class LandingController extends GetxController {
       (result) {
         authService.isAuthenticated.value = true;
         loginService.saveAuth(result);
-        Get.offAllNamed<dynamic>(AppRoutes.characters);
+        Get.offAllNamed<dynamic>(AppRoutes.character);
       },
       onError: (dynamic error) {
         Get.back<dynamic>();

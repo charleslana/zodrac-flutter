@@ -7,6 +7,7 @@ import 'package:zodrac/app/components/gradient_button.dart';
 import 'package:zodrac/app/modules/character/controllers/character_controller.dart';
 import 'package:zodrac/app/modules/character/models/character_model.dart';
 import 'package:zodrac/app/modules/login/controllers/login_controller.dart';
+import 'package:zodrac/app/routes/app_routes.dart';
 import 'package:zodrac/app/utils/constants.dart';
 
 class CharacterPage extends GetView<CharacterController> {
@@ -154,7 +155,8 @@ class CharacterPage extends GetView<CharacterController> {
                                       child: GradientButton(
                                         title: 'Criar',
                                         fontSize: 13,
-                                        callback: () {},
+                                        callback: () => Get.toNamed<dynamic>(
+                                            AppRoutes.characterForm),
                                       ),
                                     ),
                                   ),
@@ -163,14 +165,10 @@ class CharacterPage extends GetView<CharacterController> {
                             },
                           ),
                           const SizedBox(height: 20),
-                          CircleAvatar(
-                            backgroundColor: Colors.deepPurple,
-                            radius: 20,
-                            child: IconButton(
-                              onPressed: loginController.logout,
-                              icon: const Icon(
-                                Icons.logout,
-                              ),
+                          IconButton(
+                            onPressed: loginController.logout,
+                            icon: const Icon(
+                              Icons.logout,
                             ),
                           ),
                         ],

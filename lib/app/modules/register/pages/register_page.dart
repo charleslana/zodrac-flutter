@@ -181,13 +181,9 @@ class RegisterPage extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 30),
-                          CircleAvatar(
-                            backgroundColor: Colors.deepPurple,
-                            radius: 20,
-                            child: IconButton(
-                              onPressed: Get.back<dynamic>,
-                              icon: const Icon(Icons.arrow_back),
-                            ),
+                          IconButton(
+                            onPressed: Get.back<dynamic>,
+                            icon: const Icon(Icons.arrow_back),
                           ),
                           const Spacer(),
                         ],
