@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:zodrac/app/i18n/i18n.dart';
@@ -10,6 +11,11 @@ import 'package:zodrac/app/themes/colors_theme.dart';
 
 void main() async {
   await GetStorage.init();
+  // await SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  // ]);
+  WidgetsFlutterBinding.ensureInitialized();
   await Get.putAsync(() => AuthService().init());
   runApp(const MyApp());
 }
@@ -28,6 +34,13 @@ class MyApp extends StatelessWidget {
       fallbackLocale: const Locale('en', 'US'),
       translationsKeys: I18n.translationsKeys,
       locale: LanguageService.getLocale(),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales:
+          I18n.languages.map((language) => language.locale).toList(),
     );
   }
 }

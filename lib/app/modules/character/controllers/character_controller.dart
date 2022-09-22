@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
+import 'package:zodrac/app/enums/toast_enum.dart';
 import 'package:zodrac/app/models/response_model.dart';
 import 'package:zodrac/app/modules/character/models/character_model.dart';
 import 'package:zodrac/app/modules/character/services/character_service.dart';
+import 'package:zodrac/app/utils/functions.dart';
 
 class CharacterController extends GetxController
     with StateMixin<List<CharacterModel>> {
@@ -29,5 +31,25 @@ class CharacterController extends GetxController
       }
       change(null, status: RxStatus.error(error.toString()));
     });
+  }
+
+  Future<void> deleteCharacter(int id) async {
+    showLoading();
+    await charactersService.deleteCharacter(id).then(
+      (result) {
+        Get.back<dynamic>();
+        showToast(result.message, ToastEnum.success);
+        _fetchAllCharacters();
+      },
+      onError: (dynamic error) {
+        Get.back<dynamic>();
+        if (error is Map<String, dynamic>) {
+          final ResponseModel response = ResponseModel.fromMap(error);
+          showToast(response.message, ToastEnum.error);
+          return;
+        }
+        showToast(error, ToastEnum.error);
+      },
+    );
   }
 }

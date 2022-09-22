@@ -7,6 +7,7 @@ class CharacterModel {
     required this.image,
     required this.gender,
     required this.birthDate,
+    required this.level,
   });
 
   factory CharacterModel.fromJson(String source) =>
@@ -19,6 +20,7 @@ class CharacterModel {
       image: map['image'] as String,
       gender: map['gender'] as String,
       birthDate: DateTime.parse(map['birthDate']),
+      level: map['level'] as int,
     );
   }
 
@@ -32,6 +34,7 @@ class CharacterModel {
   final String image;
   final String gender;
   final DateTime birthDate;
+  final int level;
 
   CharacterModel copyWith({
     int? id,
@@ -39,6 +42,7 @@ class CharacterModel {
     String? image,
     String? gender,
     DateTime? birthDate,
+    int? level,
   }) {
     return CharacterModel(
       id: id ?? this.id,
@@ -46,6 +50,7 @@ class CharacterModel {
       image: image ?? this.image,
       gender: gender ?? this.gender,
       birthDate: birthDate ?? this.birthDate,
+      level: level ?? this.level,
     );
   }
 
@@ -56,6 +61,7 @@ class CharacterModel {
       'image': image,
       'gender': gender,
       'birthDate': birthDate.toIso8601String(),
+      'level': level,
     };
   }
 

@@ -136,27 +136,15 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const Spacer(),
-                          Column(
-                            children: [
-                              TextButton(
-                                onPressed: () => Get.offAllNamed<dynamic>(
-                                    AppRoutes.character),
-                                child: const Text(
-                                  'Ir para Personagens',
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              const TextButton(
-                                onPressed: launchDiscord,
-                                child: Text(
-                                  'Ir para Discord',
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ],
+                          const SizedBox(height: 30),
+                          const TextButton(
+                            onPressed: launchDiscord,
+                            child: Text(
+                              'Visite o Discord',
+                              textAlign: TextAlign.center,
+                            ),
                           ),
+                          const Spacer(),
                         ],
                       ),
                     ),

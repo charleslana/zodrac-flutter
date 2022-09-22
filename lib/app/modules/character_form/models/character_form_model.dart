@@ -1,3 +1,4 @@
+import 'package:zodrac/app/utils/data_constant.dart';
 import 'package:zodrac/app/utils/functions.dart';
 
 class CharacterFormModel {
@@ -5,7 +6,7 @@ class CharacterFormModel {
   void setName(String newName) => _name = Name(newName);
   Name get name => _name;
 
-  Gender _gender = Gender('');
+  Gender _gender = Gender(genders.first);
   void setGender(String newGender) => _gender = Gender(newGender);
   Gender get gender => _gender;
 
@@ -15,11 +16,15 @@ class CharacterFormModel {
   BirthDate get birthDate => _birthDate;
 
   String? validate() {
-    String? validate = _gender.validate();
+    String? validate = _name.validate();
     if (validate != null) {
       return validate;
     }
-    validate = _name.validate();
+    validate = _gender.validate();
+    if (validate != null) {
+      return validate;
+    }
+    validate = _birthDate.validate();
     if (validate != null) {
       return validate;
     }

@@ -81,3 +81,31 @@ String numberAbbreviation(dynamic myNumber) {
   final NumberFormat numberFormat = NumberFormat.compact();
   return numberFormat.format(doubleNumber);
 }
+
+String toGender(String gender) {
+  switch (gender) {
+    case 'MALE':
+      return 'gender.male'.tr;
+    case 'FEMALE':
+      return 'gender.female'.tr;
+    default:
+      return 'gender.other'.tr;
+  }
+}
+
+void showConfirmation(VoidCallback callback) {
+  _closeToast();
+  Get.defaultDialog<dynamic>(
+    onConfirm: () => {
+      Get.back<dynamic>(),
+      callback(),
+    },
+    confirmTextColor: Colors.red,
+    cancelTextColor: Colors.white,
+    buttonColor: Colors.black,
+    textCancel: 'dialog.confirmation.cancel.button'.tr,
+    textConfirm: 'dialog.confirmation.confirm.button'.tr,
+    title: 'dialog.confirmation.title'.tr,
+    middleText: 'dialog.confirmation.content'.tr,
+  );
+}

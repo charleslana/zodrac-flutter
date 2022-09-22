@@ -9,6 +9,7 @@ import 'package:zodrac/app/modules/character/models/character_model.dart';
 import 'package:zodrac/app/modules/login/controllers/login_controller.dart';
 import 'package:zodrac/app/routes/app_routes.dart';
 import 'package:zodrac/app/utils/constants.dart';
+import 'package:zodrac/app/utils/functions.dart';
 
 class CharacterPage extends GetView<CharacterController> {
   const CharacterPage({Key? key}) : super(key: key);
@@ -66,7 +67,9 @@ class CharacterPage extends GetView<CharacterController> {
                                           ),
                                         ),
                                         IconButton(
-                                          onPressed: () {},
+                                          onPressed: () => showConfirmation(
+                                              () => controller.deleteCharacter(
+                                                  character.id)),
                                           icon: const Icon(
                                             Icons.delete,
                                             color: Colors.redAccent,
@@ -99,9 +102,9 @@ class CharacterPage extends GetView<CharacterController> {
                                                     color: Colors.black
                                                         .withOpacity(0.5),
                                                   ),
-                                                  child: const Text(
-                                                    '99',
-                                                    style: TextStyle(
+                                                  child: Text(
+                                                    character.level.toString(),
+                                                    style: const TextStyle(
                                                       fontSize: 15,
                                                       color: Colors.white,
                                                     ),
